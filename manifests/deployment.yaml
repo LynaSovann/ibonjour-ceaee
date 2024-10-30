@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ibonjour-ceaee-deployment
+  labels:
+    app: ibonjour-ceaee
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: ibonjour-ceaee
+  template:
+    metadata:
+      labels:
+        app: ibonjour-ceaee
+    spec:
+      containers:
+        - name: ibonjour-ceaee-container
+          image: pipejet/ibonjour-ceaee:latest
+          ports:
+            - containerPort: 3000
